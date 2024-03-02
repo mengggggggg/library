@@ -4,6 +4,22 @@ import model.borrowModel;
 
 public class borrowRepository {
 
-    // 在這裡實現對借閱記錄資料庫的存取操作，例如新增借閱記錄、查詢借閱記錄等方法
+	package repository;
+
+	import model.bookModel;
+	import org.springframework.data.jpa.repository.JpaRepository;
+
+	public interface bookRepository extends JpaRepository<Book, Long> {
+	    
+	    
+	    bookModel findByIsbn(String isbn);
+
+	    
+	    List<bookModel> findByAuthor(String author);
+
+	    
+	    List<bookModel> findByNameContaining(String name);
+	}
+
 
 }
