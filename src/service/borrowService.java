@@ -10,6 +10,10 @@ public class borrowService {
 
     @Autowired
     private borrowRepository borrowRepository;
+    
+    public List<book> getAllBooks(){
+    	return bookRepository.findALL();
+    }
 
     // 在这里实现借阅相关的业务逻辑方法，例如借阅书籍、归还书籍等
 
