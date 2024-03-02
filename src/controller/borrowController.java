@@ -29,7 +29,7 @@ public class borrowController {
         List<Book> borrowedBooks = new ArrayList<>();
 
         for (Book book : books) {
-            if ("在库".equals(book.getStatus())) {
+            if ("在".equals(book.getStatus())) {
                 availableBooks.add(book); 
             } else {
                 borrowedBooks.add(book); 
