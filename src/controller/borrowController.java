@@ -22,4 +22,23 @@ public class borrowController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/books")
+    public String getBookList(Model model) {
+        List<Book> books = bookService.getAllBooks();
+        List<Book> availableBooks = new ArrayList<>();
+        List<Book> borrowedBooks = new ArrayList<>();
+
+        for (Book book : books) {
+            if ("在库".equals(book.getStatus())) {
+                availableBooks.add(book); 
+            } else {
+                borrowedBooks.add(book); 
+            }
+        }
+
+        model.addAttribute("availableBooks", availableBooks);
+        model.addAttribute("borrowedBooks", borrowedBooks);
+
+        return "bookList";
+    }
 }
