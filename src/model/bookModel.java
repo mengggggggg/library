@@ -6,8 +6,12 @@ public class bookModel {
     private String name;
     private String author;
     private String introduction;
+    private Long id;
+    
+    
+    
 
-    // Constructors
+   
     public bookModel() {
     }
 
@@ -18,7 +22,7 @@ public class bookModel {
         this.introduction = introduction;
     }
 
-    // Getters and setters
+    
     public String getIsbn() {
         return isbn;
     }
